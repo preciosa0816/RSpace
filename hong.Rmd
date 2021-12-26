@@ -1,0 +1,52 @@
+---
+title: "Model성능평가보고서"
+author: 'y'
+date: '2019 10 24 '
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+library(randomForest)
+library(caret)
+train_list=createDataPartition(y=iris$Species,p=0.6, list=FALSE)#60%확률 
+iris_train=iris[train_list,]
+iris_test=iris[-train_list,]
+
+f=randomForest(Species~.,data=iris_train)
+p=predict(f,newdata = iris_test)
+
+p
+iris_test$Species
+
+```
+
+
+
+

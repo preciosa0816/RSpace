@@ -1,0 +1,5 @@
+ID,MF,AGE,AREA
+1,F,50,¼­¿ï
+2,M,40,Seoul2
+3,F,30,Seoul3
+4,M,20,Seoul4
